@@ -36,7 +36,7 @@ const CheckoutForm = ({ amount, items, address, onSuccess }) => {
       // Payment successful!
       try {
         const response = await fetch(
-          "http://localhost:5000/api/payment/confirm-order",
+          "https://blinkitclone-hjmy.onrender.com/api/payment/confirm-order",
           {
             method: "POST",
             headers: {
@@ -102,7 +102,7 @@ const StripeWrapper = ({ amount, items, address, onSuccess }) => {
   React.useEffect(() => {
     // Fetch the clientSecret from backend
     fetch(
-      "http://localhost:5000/api/payment/create-payment-intent",
+      "https://blinkitclone-hjmy.onrender.com/api/payment/create-payment-intent",
       {
         method: "POST",
         headers: {

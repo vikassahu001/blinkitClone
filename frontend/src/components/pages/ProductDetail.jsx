@@ -22,7 +22,7 @@ const ProductDetail = () => {
         // A. Fetch Single Product
         // Assuming your backend supports GET /api/products/:id
         const prodRes = await fetch(
-          `http://localhost:5000/api/products/${id}`
+          `https://blinkitclone-hjmy.onrender.com/api/products/${id}`
         );
         const prodResult = await prodRes.json();
 
@@ -38,7 +38,7 @@ const ProductDetail = () => {
                 : currentProduct.category;
 
             const suggRes = await fetch(
-              `http://localhost:5000/api/products?categoryId=${catId}`
+              `https://blinkitclone-hjmy.onrender.com/api/products?categoryId=${catId}`
             );
             const suggResult = await suggRes.json();
 

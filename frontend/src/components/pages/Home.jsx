@@ -26,7 +26,7 @@ const Home = () => {
       try {
         // Replace with your actual API endpoint
         const response = await fetch(
-          "http://localhost:5000/api/home"
+          "https://blinkitclone-hjmy.onrender.com/api/home"
         );
         const result = await response.json();
         if (result.success) {

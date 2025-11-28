@@ -23,7 +23,7 @@ function Products() {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/category"
+          "https://blinkitclone-hjmy.onrender.com/api/category"
         );
         const result = await response.json();
         if (result.success && result.categories?.length > 0) {
@@ -44,7 +44,7 @@ function Products() {
       // Reset active category because we are searching globally
       setActiveCategory(null);
       fetchProducts(
-        `http://localhost:5000/api/products?search=${searchTerm}`
+        `https://blinkitclone-hjmy.onrender.com/api/products?search=${searchTerm}`
       );
     }
 
@@ -56,7 +56,7 @@ function Products() {
         if (matchingCategory) {
           setActiveCategory(matchingCategory);
           fetchProducts(
-            `http://localhost:5000/api/products?categoryId=${categoryId}`
+            `https://blinkitclone-hjmy.onrender.com/api/products?categoryId=${categoryId}`
           );
         }
       } else {

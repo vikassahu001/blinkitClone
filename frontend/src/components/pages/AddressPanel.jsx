@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MdDelete, MdEdit } from "react-icons/md";
 import "../css/AddressPanel.css";
 
-const API_BASE_URL = "http://localhost:5000/api/user";
+const API_BASE_URL = "https://blinkitclone-hjmy.onrender.com/api/user";
 
 export default function AddressPanel({ open, onClose }) {
   const [addresses, setAddresses] = useState([]);

@@ -72,7 +72,7 @@ const AdminAddModal = () => {
     try {
       // Assuming you have a GET route for categories
       const res = await fetch(
-        "http://localhost:5000/api/category"
+        "https://blinkitclone-hjmy.onrender.com/api/category"
       );
       const data = await res.json();
       if (data.success || Array.isArray(data)) {
@@ -117,8 +117,8 @@ const AdminAddModal = () => {
 
     const endpoint =
       activeTab === "category"
-        ? "http://localhost:5000/api/category"
-        : "http://localhost:5000/api/products";
+        ? "https://blinkitclone-hjmy.onrender.com/api/category"
+        : "https://blinkitclone-hjmy.onrender.com/api/products";
 
     const payload = activeTab === "category" ? catFormData : prodFormData;
 
