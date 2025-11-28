@@ -17,7 +17,7 @@ const app = express();
 const corsOptions = {
   origin: [
     "http://localhost:5173", // Local Frontend
-    "https://grocify-gilt.vercel.app", // Your Production Frontend
+    "https://grocify-psi.vercel.app", // Your Production Frontend
   ],
   methods: ["GET", "POST", "PUT", "DELETE"], // Allow only necessary methods
   credentials: true, // Allow sending tokens/cookies
