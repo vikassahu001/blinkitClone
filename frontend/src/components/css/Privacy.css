@@ -1,0 +1,98 @@
+/* PrivacyPolicy.css */
+
+/* --- Page Layout --- */
+.privacy-wrapper {
+    background-color: #f8f8f8; /* Light grey background for the full page */
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.privacy-container {
+    max-width: 1000px; /* Limits width for better reading experience */
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px 60px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Typography --- */
+.privacy-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin-bottom: 10px;
+}
+
+.privacy-last-updated {
+    font-size: 14px;
+    color: #828282;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.privacy-section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.privacy-sub-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.privacy-text {
+    font-size: 15px;
+    line-height: 1.7; /* Increases space between lines for readability */
+    color: #555555;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* --- Lists --- */
+.privacy-list {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.privacy-list li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555555;
+    margin-bottom: 8px;
+}
+
+/* --- Links & Emails --- */
+.privacy-link {
+    color: #0c831f; /* Grocify Green */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.privacy-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .privacy-container {
+        padding: 20px 20px;
+    }
+    
+    .privacy-title {
+        font-size: 24px;
+    }
+    
+    .privacy-section-title {
+        font-size: 18px;
+    }
+}

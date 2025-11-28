@@ -1,0 +1,126 @@
+/* src/components/css/Products.css */
+
+/* Global Reset */
+* { box-sizing: border-box; }
+
+body {
+  background-color: #f8f8f8;
+  overflow-y: scroll;
+}
+
+/* DIV 1: Main Wrapper */
+.app-container {
+  display: flex;
+  width: 96%;
+  max-width: 1600px;
+  margin: 0 auto;
+  align-items: flex-start;
+  position: relative;
+  min-height: 100vh;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* DIV 3: Sidebar (Left) */
+.sidebar-panel {
+  width: 240px;
+  min-width: 240px;
+  background-color: #fff;
+  border-right: 1px solid #eee;
+  position: sticky;
+  /* Desktop: Matches approximate navbar height */
+  top: 70px; 
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+  z-index: 10;
+}
+.sidebar-panel {
+  display: none;
+}
+
+.sidebar-panel::-webkit-scrollbar { width: 4px; }
+.sidebar-panel::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px; }
+
+/* Main Panel (Right Side) */
+.main-panel {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: #fff;
+  border-left: 1px solid #eee;
+  min-height: 100vh; 
+}
+
+/* DIV 2: Category Header */
+.top-header {
+  position: sticky;
+  /* Desktop: Matches approximate navbar height */
+  top: 73px; 
+  z-index: 20;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 15px 20px;
+  width: 100%;
+}
+
+.header-title-box h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1c1c1c;
+  margin: 0;
+}
+
+/* --- FIXED SCROLL CONTENT --- */
+.scroll-content {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 150px); 
+}
+
+/* DIV 4: Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* DIV 5: Footer Area */
+.footer-area {
+  margin-top: auto; 
+  padding-top: 20px;
+  width: 100%;
+}
+
+/* --- UPDATED MEDIA QUERY to match Navbar (1020px) --- */
+@media (max-width: 1020px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  /* Hide Sidebar on Tablet/Mobile */
+  .sidebar-panel {
+    display: none;
+  }
+
+  /* Adjust Header Sticky Position for Taller Navbar (2 Rows) */
+  /* Since Navbar wraps to 2 rows on <1020px, it becomes taller (~130px) */
+  .top-header {
+    top: 119px; 
+    padding: 10px 15px;
+  }
+
+  /* Adjust Content area */
+  .scroll-content {
+    min-height: calc(100vh - 180px);
+    padding: 15px;
+  }
+  
+  /* Adjust Grid for smaller screens */
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+}

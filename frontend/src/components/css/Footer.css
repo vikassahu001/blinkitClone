@@ -1,0 +1,92 @@
+/* Footer.css */
+
+/* --- Layout & Container --- */
+.footer-wrapper {
+  background-color: #ffffff;
+  border-top: 1px solid #e2e2e2;
+  width: 100%;
+  /* margin-top: auto; */
+  /* position: fixed; */
+  /* position: sticky; */
+  /* top: 0;
+  bottom: 0;
+  left: 0; */ 
+  /* z-index: 1000 */
+}
+
+.footer-content {
+  max-width: 1200px; /* Keeps content centered on large screens */
+  margin: 0 auto;
+  padding: 24px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* --- Sections --- */
+.footer-copyright {
+  color: #828282;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-link-item {
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-link-item:hover {
+  color: #0c831f; /* grocify Green brand color */
+}
+
+/* --- Social Icons Section --- */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #333;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+}
+
+.social-icon-btn:hover {
+  background-color: #0c831f; /* Hover to Green */
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-links {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .footer-social {
+    margin-top: 5px;
+  }
+}

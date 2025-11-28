@@ -1,0 +1,11 @@
+const express = require("express");
+const router = express.Router();
+const userController = require("../controllers/userController");
+const { protect } = require("../middleware/authMiddleware");
+
+// Protected Routes (Requires Token)
+router.get("/profile", protect, userController.getUserProfile);
+router.post("/address", protect, userController.addAddress);
+router.put("/address/:addressId", protect, userController.updateAddress);
+router.delete("/address/:addressId", protect, userController.deleteAddress);
+module.exports = router;
