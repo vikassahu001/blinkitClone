@@ -24,7 +24,7 @@ const CheckoutForm = ({ amount, items, address, onSuccess }) => {
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:5173/confirm-order",
+        return_url: "https://grocify-psi.vercel.app/confirm-order",
       },
       redirect: "if_required", // Important: Prevents redirect if not needed
     });
