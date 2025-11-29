@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../css/LoginModal.css";
+// import { isValidPhoneNumber } from "libphonenumber-js";
 
 const API_BASE_URL = "https://blinkitclone-hjmy.onrender.com/api/auth";
 
@@ -12,14 +13,21 @@ export default function LoginModal({
   const [mobile, setMobile] = useState("");
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
-  
+
   // Timer State for Resend OTP
   const [timer, setTimer] = useState(0);
 
   // New Error State
   const [error, setError] = useState("");
-  
+
   const inputRef = useRef(null);
+
+   const validateIndianMobile = (number) => {
+     if (!number) return false;
+     
+     const regex = /^[6-9]\d{9}$/;
+     return regex.test(number);
+   };
 
   // --- Reset state whenever 'open' becomes true ---
   useEffect(() => {
@@ -47,9 +55,9 @@ export default function LoginModal({
   if (!open) return null;
 
   // --- Logic to Disable Button ---
-  const isBtnDisabled = 
-    loading || 
-    (step === "PHONE" && mobile.length !== 10) || 
+  const isBtnDisabled =
+    loading ||
+    (step === "PHONE" && mobile.length !== 10) ||
     (step === "OTP" && otp.length !== 4);
 
   // --- Helper to Send OTP ---
@@ -62,7 +70,7 @@ export default function LoginModal({
         body: JSON.stringify({ phoneNumber: mobile }),
       });
       const data = await res.json();
-      
+
       if (data.success) {
         setStep("OTP");
         setOtp("");
@@ -82,6 +90,13 @@ export default function LoginModal({
     setError("");
 
     if (step === "PHONE") {
+      
+      if (!validateIndianMobile(mobile)) {
+        
+        setError("Please enter a valid mobile number.");
+        return; 
+      }
+      
       await sendOtpApi();
     } else {
       setLoading(true);
@@ -184,7 +199,9 @@ export default function LoginModal({
 
           {step === "OTP" && (
             <div style={{ marginTop: "15px" }}>
-              <p style={{ fontSize: "13px", color: "#666", marginBottom: "5px" }}>
+              <p
+                style={{ fontSize: "13px", color: "#666", marginBottom: "5px" }}
+              >
                 Didn't receive code?{" "}
                 {timer > 0 ? (
                   <span style={{ fontWeight: "bold", color: "#999" }}>
@@ -208,7 +225,7 @@ export default function LoginModal({
 
               <button
                 onClick={() => {
-                  setStep("PHONE"); 
+                  setStep("PHONE");
                   setOtp("");
                   setError("");
                 }}
@@ -223,8 +240,13 @@ export default function LoginModal({
           <div className="footer">
             <p className="terms-textt">
               By continuing, you agree to our{" "}
-              <a href="/terms" onClick={onClose}>Terms of Service</a> &{" "}
-              <a href="/privacy" onClick={onClose}>Privacy Policy</a>
+              <a href="/terms" onClick={onClose}>
+                Terms of Service
+              </a>{" "}
+              &{" "}
+              <a href="/privacy" onClick={onClose}>
+                Privacy Policy
+              </a>
             </p>
           </div>
         </div>
