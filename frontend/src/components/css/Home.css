@@ -137,18 +137,18 @@
   }
   /* Category Grid on Mobile */
   .category-cards {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 8px;
   }
 }
 /* Very Small Mobiles */
 @media (max-width: 480px) {
   .category-cards {
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    grid-template-columns: repeat(4, 1fr); /* 3 items per row */
   }
 
   .first-banner-img {
-    border-radius: 8px; /* Add curve on mobile to separate from header */
+    display: none; /* Add curve on mobile to separate from header */
   }
   .second-banner {
     padding: 0;
