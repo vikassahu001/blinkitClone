@@ -15,33 +15,9 @@
 }
 
 .footer-toggle-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 12px 20px;
-  background-color: #ffffff;
-  /* border-bottom: 1px solid #f0f0f0;  */
+  display: none;
 }
 
-.footer-tagline {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #333;
-}
-
-/* The +/- Button */
-.footer-toggle-btn {
-  border: none;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  cursor: pointer;
-}
 .footer-content {
   max-width: 1200px; 
   margin: 0 auto;
@@ -102,6 +78,43 @@
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
+
+  .footer-toggle-bar {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #ffffff;
+  }
+  .footer-tagline {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .footer-toggle-btn {
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .footer-wrapper.closed .footer-content {
+    display: none;
+  }
+  
+  .footer-wrapper.open .footer-content {
+    max-height: 80vh; 
+    overflow-y: auto; 
+  }
+
   .footer-content {
     flex-direction: column;
     gap: 20px;
