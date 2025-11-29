@@ -14,8 +14,36 @@
   /* z-index: 1000 */
 }
 
+.footer-toggle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #ffffff;
+  /* border-bottom: 1px solid #f0f0f0;  */
+}
+
+.footer-tagline {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* The +/- Button */
+.footer-toggle-btn {
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+}
 .footer-content {
-  max-width: 1200px; /* Keeps content centered on large screens */
+  max-width: 1200px; 
   margin: 0 auto;
   padding: 24px 20px;
   display: flex;
@@ -75,7 +103,7 @@
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
   .footer-content {
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
     gap: 20px;
     text-align: center;
   }
@@ -86,7 +114,7 @@
     justify-content: center;
   }
   
-  .footer-social {
+  /* .footer-social {
     margin-top: 5px;
-  }
+  } */
 }

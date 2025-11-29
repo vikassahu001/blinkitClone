@@ -1,8 +1,6 @@
-/* css/Home.css */
-
 /* --- Global Container --- */
 .home-container {
-  background-color: #fcfcfc; /* grocify's very light off-white */
+  background-color: #fcfcfc; 
   /* min-height: 100vh; */
   height: 100%;
   width: 100%;
@@ -13,7 +11,6 @@
   /* margin-top: auto; */
 }
 
-/* Limits the width on big screens to keep it readable (Like grocify Desktop) */
 .main-content-wrapper {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,7 +37,7 @@
 /* --- Second Banner (Pharmacy/Pet/Baby) --- */
 .second-banner {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 Equal Columns */
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding: 0 13px;
   margin-bottom: 10px;
@@ -49,7 +46,7 @@
 .second-banner-link {
   display: block;
   overflow: hidden;
-  border-radius: 12px; /* Smooth rounded corners */
+  border-radius: 12px;
 }
 
 .second-banner-img {
@@ -67,9 +64,8 @@
 /* --- Category Cards Grid --- */
 .category-cards {
   display: grid;
-  /* grocify Desktop typically fits 8-10 items in a row */
   grid-template-columns: repeat(10, 1fr);
-  gap: 0px; /* grocify category slices usually have no gap between them visually */
+  gap: 0px; 
 }
 
 .category-card {
@@ -88,7 +84,7 @@
 
 /* Hover effect for categories */
 .category-card:hover .category-card-img {
-  transform: translateY(-4px); 
+  transform: translateY(-4px);
   filter: brightness(1.05);
 }
 
@@ -101,7 +97,6 @@
   }
 }
 
-/* Mobile Devices */
 /* Mobile Devices */
 @media (max-width: 768px) {
   .main-content-wrapper {
@@ -127,15 +122,11 @@
 
   .second-banner-img {
     width: 100%;
-    /* 4. Let the image height dictate the container height */
     height: auto;
-
-    /* Optional: This ensures it looks good even if you add a fixed height later */
     object-fit: cover;
     border-radius: 12px;
-    display: block; /* Removes tiny bottom gap typical with images */
+    display: block; 
   }
-  /* Category Grid on Mobile */
   .category-cards {
     grid-template-columns: repeat(5, 1fr);
     gap: 8px;
@@ -144,23 +135,18 @@
 /* Very Small Mobiles */
 @media (max-width: 480px) {
   .category-cards {
-    grid-template-columns: repeat(4, 1fr); /* 3 items per row */
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .first-banner-img {
-    display: none; /* Add curve on mobile to separate from header */
+    display: none;
   }
   .second-banner {
     padding: 0;
   }
   .second-banner-link {
-    /* 1. Stick to the 300px width you wanted */
     width: 200px;
-
-    /* 2. REMOVE fixed height. Use 'auto' so the box adjusts to the image */
     height: auto;
-
-    /* 3. Prevent shrinking */
     flex-shrink: 0;
     display: block;
   }
