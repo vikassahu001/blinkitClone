@@ -1,14 +1,16 @@
-# Simulated daily request to your render project so that the service doesn't go down
-name: Daily Render Ping
+name: Keep Render Alive
 
 on:
   schedule:
-    - cron: '0 23 * * *'  # Runs daily at 23:00 UTC
+    # Run every 14 minutes to beat the 15-minute timeout
+    - cron: '*/14 * * * *'
   workflow_dispatch:
 
 jobs:
-  curl-website:
+  ping-site:
     runs-on: ubuntu-latest
     steps:
-      - name: cURL website to prevent Render sleep
+      - name: Ping Website
+        # -I: Fetch headers only (lighter on bandwidth)
+        # --fail: Fail the job if the server returns a 400/500 error
         run: curl -I --fail -A "GithubActionsPing" https://blinkitclone-hjmy.onrender.com
