@@ -35,3 +35,16 @@ exports.protect = async (req, res, next) => {
       .json({ success: false, message: "Not authorized, no token" });
   }
 };
+
+// Grant access to specific roles
+exports.admin = (req, res, next) => {
+  // req.user is already set by the 'protect' middleware
+  if (req.user && req.user.role === "admin") {
+    next();
+  } else {
+    res.status(403).json({ 
+      success: false, 
+      message: "Not authorized as an admin" 
+    });
+  }
+};

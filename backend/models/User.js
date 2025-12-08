@@ -30,6 +30,12 @@ const userSchema = new mongoose.Schema(
     verifyOtpExpireAt: { type: Date },
     isPhoneVerified: { type: Boolean, default: false },
 
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user", // Default to user so new sign-ups are not admins
+    },
+
     // Commerce & Data
     savedAddresses: [addressSchema],
     // walletBalance: { type: Number, default: 0 },

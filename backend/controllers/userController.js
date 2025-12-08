@@ -123,3 +123,21 @@ exports.updateAddress = async (req, res) => {
     res.status(500).json({ success: false, message: "Server Error" });
   }
 };
+
+// @desc    Get all users (Admin only)
+// @route   GET /api/user/all-users
+exports.getAllUsers = async (req, res) => {
+  try {
+    // Fetch all users, sorted by creation date (newest first)
+    const users = await User.find({}).sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: users.length,
+      users,
+    });
+  } catch (error) {
+    console.error("Error fetching all users:", error);
+    res.status(500).json({ success: false, message: "Server Error" });
+  }
+};

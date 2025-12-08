@@ -99,7 +99,7 @@ exports.verifyOtp = async (req, res) => {
 
     // 5. Generate JWT Token
     const token = jwt.sign(
-      { id: user._id, phone: user.phoneNumber },
+      { id: user._id, phone: user.phoneNumber, role:user.role },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
@@ -111,6 +111,7 @@ exports.verifyOtp = async (req, res) => {
         id: user._id,
         phoneNumber: user.phoneNumber,
         name: user.name,
+        role:user.role,
       },
     });
   } catch (error) {

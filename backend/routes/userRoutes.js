@@ -8,4 +8,6 @@ router.get("/profile", protect, userController.getUserProfile);
 router.post("/address", protect, userController.addAddress);
 router.put("/address/:addressId", protect, userController.updateAddress);
 router.delete("/address/:addressId", protect, userController.deleteAddress);
+
+router.get("/all-users", protect, admin, userController.getAllUsers);
 module.exports = router;
