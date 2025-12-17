@@ -1,6 +1,6 @@
 /* --- Global Container --- */
 .admin-page-container {
-  padding: 20px;
+  /* padding: 20px; */
   width: 100%;
 }
 
@@ -8,7 +8,7 @@
 .product-grid {
   display: grid;
   /* Auto-fill creates responsive columns (min 220px width) */
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
@@ -33,7 +33,7 @@
 /* Image Area */
 .admin-card-img-wrapper {
   width: 100%;
-  height: 140px; /* Fixed height for consistency */
+  height: 100px; /* Fixed height for consistency */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,4 +120,12 @@
 }
 .btn-delete:hover {
   background-color: #fee2e2;
+}
+.sticky-sub-header {
+  position: sticky;
+  top: 0;
+  z-index: 10; 
+  background-color: #f4f6f8; 
+  padding-top: 5px;
+  padding-bottom: 15px;
 }

@@ -57,7 +57,7 @@ const AllProducts = () => {
 
   return (
     <div className="admin-page-container">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6 sticky-sub-header">
         <h2 className="text-xl font-bold text-gray-800">
           All Products ({products.length})
         </h2>
