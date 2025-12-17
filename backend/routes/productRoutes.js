@@ -8,7 +8,13 @@ router.get("/products", productController.getProducts);
 // GET /api/products/:id 
 router.get("/products/:id", productController.getProductById);
 
+//PUT/ Update /api/products/:id
+router.put("/products/:id", productController.updateProductById);
+
 // POST /api/products
 router.post("/products", productController.createProduct);
+
+// DELETE/api/products/:id
+router.delete("/products/:id", productController.deleteProductById);
 
 module.exports = router;

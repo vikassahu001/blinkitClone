@@ -1,6 +1,23 @@
 /* AddCategory.css */
 
 /* --- NEW: Modal Styles --- */
+/* Shared container styles */
+.admin-page-container {
+  width: 100%;
+}
+
+/* Specific styling for the Forms (Category & Product) */
+.admin-form-container {
+  max-width: 600px; /* Keep the readable width */
+  background-color: #fff; /* White Card Background */
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 0; /* Align to top-left */
+  
+  /* If you want it centered horizontally but top-aligned: */
+  /* margin: 0 auto; */ 
+}
 
 /* The circular + button */
 .add-category-trigger {
