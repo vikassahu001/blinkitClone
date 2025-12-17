@@ -4,6 +4,10 @@
   margin: 0 auto;
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .dashboard-title {
@@ -18,7 +22,11 @@
 .admin-layout {
   display: flex;
   gap: 30px; /* Space between sidebar and content */
-  min-height: 80vh; /* Ensure it takes up vertical space */
+  /* min-height: 80vh; */
+
+  flex: 1;
+  min-height: 0;
+
 }
 
 /* --- Sidebar Styling --- */
@@ -29,6 +37,9 @@
   border-right: 1px solid #e5e7eb;
   padding: 0 20px;
   border-radius: 20px;
+
+  height: auto;
+  min-height: 100%;
 }
 
 .sidebar-nav {
@@ -74,5 +85,5 @@
   flex: 1;
   /* padding: 20px; */
   background-color: transparent; 
-  overflow-y: auto;
+  overflow: visible;
 }
