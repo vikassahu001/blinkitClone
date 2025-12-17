@@ -65,7 +65,7 @@ const AdminProduct = () => {
         time: productToEdit.time || "10 MINS",
         // Handle case where category might be an object or an ID string
         category:
-          typeof productToEdit.category === "object"
+          productToEdit.category && typeof productToEdit.category === "object"
             ? productToEdit.category._id
             : productToEdit.category || "",
       });
