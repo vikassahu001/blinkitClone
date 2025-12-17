@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { slugify } from "../../utils/urlHelper";
 import "../css/SeoFooter.css";
+import { capitalizeWords } from "../../utils/camelCase";
 
 const SeoFooter = ({ activeCategory, categories = [] }) => {
   const catName = activeCategory ? activeCategory.name : "Groceries";
@@ -33,7 +34,7 @@ const SeoFooter = ({ activeCategory, categories = [] }) => {
             footerCategories.map((cat) => (
               <li key={cat._id}>
                 <Link to={`/cn/${slugify(cat.name)}/cid/${cat._id}`}>
-                  {cat.name}
+                  {capitalizeWords(cat.name)}
                 </Link>
               </li>
             ))
