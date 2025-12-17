@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Navbar from "./components/pages/Navbar";
@@ -11,6 +11,10 @@ import Terms from "./components/pages/Terms";
 import Security from "./components/pages/Security";
 import FullScreenLoader from "./components/pages/FullScreenLoader";
 import ProductDetail from "./components/pages/ProductDetail";
+import Dashboard from "./components/pages/Dashboard";
+import AllProducts from "./components/pages/AllProducts";
+import AdminProduct from "./components/pages/AdminProduct";
+import AdminCategory from "./components/pages/AdminCategory";
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);

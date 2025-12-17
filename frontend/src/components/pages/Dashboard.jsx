@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink, Navigate, Outlet } from "react-router-dom";
-import ProfileMenu from "./ProfileMenu";
 import "../css/Dashboard.css"; // Import the CSS file
 
 const Dashboard = ({ user }) => {
