@@ -218,7 +218,13 @@
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
+.profile-link{
+  color: #666;
+  margin-top: 6px;
+}
+.profile-link:hover{
+  color: #0c831f;
+}
 .profile-icon-btn:hover {
   background-color: #016814ef;
   border-color: #0c831f;
@@ -267,6 +273,10 @@
   border-bottom: 1px solid #f0f0f0;
   display: flex;
   flex-direction: column;
+}
+.profile-NuLink{
+  display: flex;
+  gap: 5px;
 }
 .profile-header strong {
   color: #111;

@@ -362,8 +362,23 @@ const Navbar = ({ showLogin, setShowLogin, user, handleLogout }) => {
                 <div className="profile-dropdown">
                   <div className="profile-header">
                     <strong>{user.name || "My Account"}</strong>
-                    <span>{user.phoneNumber}</span>
+                    <div className="profile-NuLink">
+                      <span>{user.phoneNumber}</span>
+                    </div>
                   </div>
+
+                  {user?.role === "admin" && (
+                    <button
+                      className="profile-menu-item"
+                      onClick={() => {
+                        navigate("/dashboard"); // Use the hook: const navigate = useNavigate();
+                        setShowProfileMenu(false);
+                      }}
+                      style={{ color: "#d32f2f", fontWeight: "bold" }} // Optional styling
+                    >
+                      Admin Dashboard
+                    </button>
+                  )}
 
                   <button
                     className="profile-menu-item"

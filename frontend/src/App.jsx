@@ -85,6 +85,32 @@ function App() {
         </>
       ),
     },
+    {
+      path: "/dashboard",
+      element: (
+        <>
+          <Navbar {...commonProps} />
+          <Dashboard user={user} />
+          <Footer />
+        </>
+      ),
+      children: [
+        {
+          // 1. DEFAULT REDIRECT: If user goes to "/dashboard", send to "all-products"
+          index: true,
+          element: <Navigate to="all-products" replace />,
+        },
+        {
+          path: "all-products",
+          element: <AllProducts />,
+        },
+        { path: "add-category", element: <AdminCategory /> },
+        {
+          path: "add-products",
+          element: <AdminProduct />,
+        },
+      ],
+    },
     // 1. Generic Products Route (Entry point for /products)
     // This route allows the page to load, fetch categories, and then redirect to the correct URL
     {
