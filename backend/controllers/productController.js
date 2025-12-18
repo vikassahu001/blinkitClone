@@ -18,8 +18,6 @@ exports.getProducts = async (req, res) => {
       // Step A: Find categories that match the search term
       const matchingCategories = await Category.find({
         name: { $regex: search, $options: "i" },
-      }).sort({
-        createdAt: -1,
       });
 
       const matchingCategoryIds = matchingCategories.map((cat) => cat._id);
