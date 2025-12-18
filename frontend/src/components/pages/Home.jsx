@@ -8,6 +8,7 @@ const Home = () => {
   const [categories, setCategories] = useState([]);
   const [heroBanner, setHeroBanner] = useState(null);
   const [secondBanners, setSecondBanners] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // Find targetUrl from dynamically
@@ -21,21 +22,29 @@ const Home = () => {
   };
 
   // Scroll to top on load
-  useEffect(() => {
+ useEffect(() => {
     const fetchData = async () => {
       try {
-        // Replace with your actual API endpoint
-        const response = await fetch(
-          "https://blinkitclone-hjmy.onrender.com/api/home"
-        );
-        const result = await response.json();
-        if (result.success) {
-          setHeroBanner(result.data.heroBanner);
-          setSecondBanners(result.data.secondaryBanners);
-          setCategories(result.data.categories);
+        // A. Fetch Home Config (Banners & Categories)
+        const homeRes = await fetch("https://blinkitclone-hjmy.onrender.com/api/home");
+        const homeResult = await homeRes.json();
+        
+        if (homeResult.success) {
+          setHeroBanner(homeResult.data.heroBanner);
+          setSecondBanners(homeResult.data.secondaryBanners);
+          setCategories(homeResult.data.categories);
         }
+
+        // B. NEW: Fetch All Products
+        const prodRes = await fetch("https://blinkitclone-hjmy.onrender.com/api/products");
+        const prodResult = await prodRes.json();
+        if (prodResult.success) {
+          setProducts(prodResult.data);
+        }
+
       } catch (error) {
         console.error("Error fetching data", error);
+      } finally {
         setLoading(false);
       }
     };
@@ -43,6 +52,28 @@ const Home = () => {
     fetchData();
     window.scrollTo(0, 0);
   }, []);
+
+  const groupedProducts = useMemo(() => {
+    if (!products.length) return {};
+
+    return products.reduce((acc, product) => {
+      let catName = "Others";
+
+      // Handle populated object vs string ID
+      if (product.category && typeof product.category === "object") {
+        catName = product.category.name;
+      } else if (product.category && typeof product.category === "string") {
+        const found = categories.find((c) => c._id === product.category);
+        if (found) catName = found.name;
+      }
+
+      if (!acc[catName]) {
+        acc[catName] = [];
+      }
+      acc[catName].push(product);
+      return acc;
+    }, {});
+  }, [products, categories]);
 
   return (
     <div className="home-container">
@@ -92,6 +123,23 @@ const Home = () => {
                 alt={category.alt || category.name}
               />
             </Link>
+          ))}
+        </div>
+         {/* Home Products Section */}
+        <div className="home-products-section">
+          {Object.keys(groupedProducts).map((categoryName) => (
+            <div key={categoryName} className="category-row">
+              <div className="category-header">
+                <h3 className="category-title">{categoryName}</h3>
+                {/* Optional: Add a "See All" button here if you want */}
+              </div>
+
+              <div className="products-horizontal-grid">
+                {groupedProducts[categoryName].slice(0, 6).map((product) => (
+                  <ProductCard key={product._id} product={product} />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
