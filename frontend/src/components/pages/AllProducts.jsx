@@ -16,7 +16,7 @@ const AllProducts = () => {
         );
         const result = await response.json();
         if (result.success && result.data) {
-          setProducts(result.data);
+          setProducts(result.data.reverse());
         }
       } catch (error) {
         console.error("Error fetching products:", error);
