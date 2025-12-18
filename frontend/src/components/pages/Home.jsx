@@ -4,6 +4,7 @@ import "../css/Home.css";
 import { useState } from "react";
 import { slugify } from "../../utils/urlHelper";
 import ProductCard from "./ProductCard";
+import { capitalizeWords } from "../../utils/camelCase";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -126,12 +127,14 @@ const Home = () => {
             </Link>
           ))}
         </div>
-         {/* Home Products Section */}
+        {/* Home Products Section */}
         <div className="home-products-section">
           {Object.keys(groupedProducts).map((categoryName) => (
             <div key={categoryName} className="category-row">
               <div className="category-header">
-                <h3 className="category-title">{categoryName}</h3>
+                <h3 className="category-title">
+                  {capitalizeWords(categoryName)}
+                </h3>
                 {/* Optional: Add a "See All" button here if you want */}
               </div>
 
