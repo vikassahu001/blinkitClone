@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import "../css/Home.css";
 import { useState } from "react";
 import { slugify } from "../../utils/urlHelper";
+import ProductCard from "./ProductCard";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
