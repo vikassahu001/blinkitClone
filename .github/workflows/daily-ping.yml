@@ -2,7 +2,6 @@ name: Keep Render Alive
 
 on:
   schedule:
-    # Run every 14 minutes to beat the 15-minute timeout
     - cron: '*/14 * * * *'
   workflow_dispatch:
 
@@ -11,6 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Website
-        # -I: Fetch headers only (lighter on bandwidth)
-        # --fail: Fail the job if the server returns a 400/500 error
-        run: curl -I --fail -A "GithubActionsPing" https://blinkitclone-hjmy.onrender.com
+        run: |
+          curl -L -A "GithubActionsPing" https://blinkitclone-hjmy.onrender.com || true
