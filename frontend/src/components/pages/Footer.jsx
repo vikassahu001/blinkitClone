@@ -44,16 +44,19 @@ const Footer = () => {
         </div>
 
         <div className="footer-social">
-          <Link to="#" className="social-icon-btn">
-            <FaFacebookF />
-          </Link>
-          <Link to="#" className="social-icon-btn">
+          <Link to="https://x.com/VikasSahu15933" className="social-icon-btn">
             <FaTwitter />
           </Link>
-          <Link to="#" className="social-icon-btn">
+          <Link
+            to="https://www.instagram.com/vikas.sahu001/#"
+            className="social-icon-btn"
+          >
             <FaInstagram />
           </Link>
-          <Link to="#" className="social-icon-btn">
+          <Link
+            to="https://www.linkedin.com/in/vikas-sahu-ba3008356/"
+            className="social-icon-btn"
+          >
             <FaLinkedinIn />
           </Link>
         </div>
