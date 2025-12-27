@@ -44,17 +44,26 @@ const Footer = () => {
         </div>
 
         <div className="footer-social">
-          <Link to="https://x.com/VikasSahu15933" className="social-icon-btn">
+          <Link
+            to="https://x.com/VikasSahu15933"
+            target="_blank"
+            rel="noreferrer"
+            className="social-icon-btn"
+          >
             <FaTwitter />
           </Link>
           <Link
             to="https://www.instagram.com/vikas.sahu001/#"
+            target="_blank"
+            rel="noreferrer"
             className="social-icon-btn"
           >
             <FaInstagram />
           </Link>
           <Link
             to="https://www.linkedin.com/in/vikas-sahu-ba3008356/"
+            target="_blank"
+            rel="noreferrer"
             className="social-icon-btn"
           >
             <FaLinkedinIn />
