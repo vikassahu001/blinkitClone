@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaXTwitter } from "react-icons/fa6";
 import {
-  FaFacebookF,
-  FaTwitter,
   FaInstagram,
   FaLinkedinIn,
   FaPlus,
@@ -50,7 +49,7 @@ const Footer = () => {
             rel="noreferrer"
             className="social-icon-btn"
           >
-            <FaTwitter />
+            <FaXTwitter />
           </Link>
           <Link
             to="https://www.instagram.com/vikas.sahu001/#"
