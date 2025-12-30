@@ -139,7 +139,7 @@ const Home = () => {
               </div>
 
               <div className="products-horizontal-grid">
-                {groupedProducts[categoryName].slice(0, 7).map((product) => (
+                {groupedProducts[categoryName].slice(0, 6).map((product) => (
                   <ProductCard key={product._id} product={product} />
                 ))}
               </div>
