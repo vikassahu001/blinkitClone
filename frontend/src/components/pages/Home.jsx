@@ -135,7 +135,6 @@ const Home = () => {
                 <h3 className="category-title">
                   {capitalizeWords(categoryName)}
                 </h3>
-                {/* Optional: Add a "See All" button here if you want */}
               </div>
 
               <div className="products-horizontal-grid">
