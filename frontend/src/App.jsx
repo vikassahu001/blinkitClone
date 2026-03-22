@@ -29,7 +29,7 @@ function App() {
         setUser(JSON.parse(storedUser));
       }
       // Simulate loading delay
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 5000));
       setLoading(false);
     };
     loadData();
