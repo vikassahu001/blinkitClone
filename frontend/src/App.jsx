@@ -28,10 +28,17 @@ function App() {
       if (storedUser) {
         setUser(JSON.parse(storedUser));
       }
-      // Simulate loading delay
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-      setLoading(false);
-    };
+      // Ping the backend to wake it up (Render free tier sleep fix)
+      try {
+        // Hitting a lightweight endpoint just to make sure the server is awake
+        await fetch("https://blinkitclone-hjmy.onrender.com/api/home");
+      } catch (error) {
+        console.error("Backend is waking up or currently unreachable:", error);
+      } finally {
+        // Once the backend responds (or fails), remove the FullScreenLoader
+        setLoading(false);
+      }
+    };;
     loadData();
   }, []);
 
