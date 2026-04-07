@@ -2,13 +2,14 @@ name: Keep Render Alive
 
 on:
   schedule:
-    - cron: '*/14 * * * *'
+    - cron: '*/14 * * * *'  # every 14 minutes
   workflow_dispatch:
 
 jobs:
   ping-site:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Website
+      - name: Ping Website Silently
         run: |
-          curl -L -A "GithubActionsPing" https://blinkitclone-hjmy.onrender.com || true
+          curl -s -o /dev/null -L -A "GithubActionsPing" https://blinkitclone-hjmy.onrender.com || true
+          echo "Ping sent to https://blinkitclone-hjmy.onrender.com"
